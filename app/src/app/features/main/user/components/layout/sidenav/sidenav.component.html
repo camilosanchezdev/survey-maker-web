@@ -1,0 +1,55 @@
+<mat-sidenav-container class="app-sidenav-container" autosize>
+    <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10">
+        <mat-toolbar color="primary">Contacts</mat-toolbar>
+        <mat-list>
+          <mat-list-item >
+            <a matLine >
+              <mat-icon>home</mat-icon>
+              <a [routerLink]="['/main']" (click)="sidenav.toggle()">Dashboard</a>
+            </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a matLine>
+              <mat-icon>home</mat-icon>
+              <a [routerLink]="['/main/profile']" (click)="sidenav.toggle()">Profile</a>
+            </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a matLine>
+              <mat-icon>home</mat-icon>
+              <a [routerLink]="['/main/surveys']" (click)="sidenav.toggle()">Surveys</a>
+            </a>
+          </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+
+    <div class="app-sidenav-content">
+        <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+        <div class="container-fluid wrapper d-flex flex-column justify-content-between">
+          <div class="row">
+            <div class="sidebar col-xl-3 col-lg-2">
+              <div class="row mt-4 d-flex justify-content-center">
+                <div class="col-12 d-flex flex-wrap justify-content-center mt-5">
+                  <ui-nav-button class="grid-item mb-4" text="Dashboard" link="/main" icon="home"></ui-nav-button>
+                  <ui-nav-button class="grid-item mb-4" text="Profile" link="/main/profile" icon="person"></ui-nav-button>
+                  <ui-nav-button class="grid-item mb-4" text="Surveys" link="/main/surveys" icon="description"></ui-nav-button>
+                  <ui-nav-button class="grid-item mb-4" text="Settings" link="/main/settings" icon="settings"></ui-nav-button>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-9 col-lg-10">
+              <ng-content></ng-content>
+            </div>
+          </div>
+          <div class="row">
+            <div class="footer d-flex justify-content-center col-12" #footer>
+              <span class="pt-2">Camilo Sanchez</span>
+             </div>
+          </div>
+         
+        </div>
+        
+    </div>
+
+
+</mat-sidenav-container>

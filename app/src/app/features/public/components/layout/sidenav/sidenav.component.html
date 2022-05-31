@@ -1,0 +1,36 @@
+<mat-sidenav-container class="app-sidenav-container" autosize>
+  <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10 main-menu">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-list class="list-group pt-0">
+      <mat-list-item class="list-group-item list-group-item-action"  [routerLink]="['']" (click)="sidenav.toggle()">
+        <li matLine>
+          <mat-icon>home</mat-icon>
+          <span class="mx-1">Home</span>
+        </li>
+      </mat-list-item>
+      <mat-list-item class="list-group-item list-group-item-action" [routerLink]="['/login']" (click)="sidenav.toggle()">
+        <li matLine>
+          <mat-icon>login</mat-icon>
+          <span class="mx-1">Login</span>
+        </li>
+      </mat-list-item>
+      <mat-list-item class="list-group-item list-group-item-action" [routerLink]="['/register']" (click)="sidenav.toggle()">
+        <li matLine>
+          <mat-icon>app_registration</mat-icon>
+          <span class="mx-1">Register</span>
+        </li>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <div class="app-sidenav-content">
+    <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
+    <div class="wrapper">
+      <div class="container">
+          <ng-content></ng-content>
+      </div>
+
+    </div>
+  </div>
+
+
+</mat-sidenav-container>

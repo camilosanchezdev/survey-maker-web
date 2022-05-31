@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <ui-breadcrumbs [section]="1"></ui-breadcrumbs>
+      <mat-card class="survey-card col-12">
+        <mat-card-content class="header row d-flex align-items-end pb-3">
+            <div class="col-md-2 col-12 d-flex justify-content-center">
+                <img src="./../../../../../../assets/img/avatars/avatar-1.png" alt="Profile">
+            </div>
+            <div class="col-lg-4 col-md-2 col-12 d-flex justify-content-md-start justify-content-center my-3">
+                <mat-card-title class="title">{{profile?.name}}</mat-card-title>
+            </div>
+            <div class="col-lg-6 col-md-8 col-12 d-flex justify-content-md-end justify-content-center">
+                <button mat-raised-button color="primary" class="mx-3" [routerLink]="['/main/profile/edit']">Edit Profile</button>
+                <button mat-raised-button color="accent" [routerLink]="['/main/profile/change-password']">Change Password</button>
+            </div>
+        </mat-card-content>
+        <mat-card-content>
+          <div class="sub-header">
+            <div class="col">
+              <span>Created: {{ profile?.createdAt | date}}</span>
+            </div>
+            <div class="col">
+              <span>Email: {{profile?.email}}</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="container-fluid d-flex">
+    <div class="row">
+      <div class="col-12 col-lg-4 d-flex justify-content-center flex-column">
+        <div class="row">
+          <h1 class="h1-main pb-3">Register</h1>
+        </div>
+        <div class="row">
+          <h2>A few clicks away from creating your own surveys.</h2>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <form class="form d-flex flex-column" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Name</mat-label>
+                  <input matInput formControlName="name">
+                </mat-form-field>
+                <div formGroupName="emailGroup" class="d-flex flex-column">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                  </mat-form-field>
+                  
+                  <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>Repeat Email</mat-label>
+                      <input matInput formControlName="repeatEmail">
+                      <small *ngIf="formGroup.get('emailGroup').errors && submitted" class="ml-1 text-danger" >Please make sure your emails match</small>
+                  </mat-form-field>
+                 
+                </div>
+               <div formGroupName="passwordGroup" class="d-flex flex-column">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Password</mat-label>
+                  <input matInput formControlName="password" type="password">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Repeat Password</mat-label>
+                    <input matInput formControlName="repeatPassword" type="password">
+                    <small *ngIf="formGroup.get('passwordGroup').errors && submitted" class="ml-1 text-danger" >Please make sure your passwords match</small>
+                </mat-form-field>
+               </div>
+              
+                
+                <button type="submit" mat-raised-button color="primary">Create Account</button>
+              </form>
+            
+            <p class="my-2">Already have an account? <strong class="text-primary cursor-pointer" [routerLink]="['/login']">Sign in</strong></p>
+          </div>
+  
+        </div>
+      </div>
+      <div class="col-8 order-first order-lg-last">
+        <div class="image">
+          <img src="./../../../../assets/img/home-landing.jpg" class="w-100" alt="">
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  
+  

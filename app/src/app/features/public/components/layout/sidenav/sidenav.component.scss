@@ -1,0 +1,16 @@
+.main-menu {
+  width: 200px;
+  .list-group .list-group-item {
+    cursor: pointer;
+  }
+}
+.wrapper {
+
+  min-height: 100vh;
+  background: #f1f4f9;
+
+  .container {
+    grid-column-start: 1;
+    grid-column-end: 12;
+  }
+}

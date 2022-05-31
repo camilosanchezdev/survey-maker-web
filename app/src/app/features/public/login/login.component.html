@@ -1,0 +1,39 @@
+<div class="container-fluid d-flex">
+    <div class="row">
+      <div class="col-12 col-lg-4 d-flex justify-content-center flex-column">
+        <div class="row">
+          <h1 class="h1-main pb-3">Hello Again!</h1>
+        </div>
+        <div class="row">
+          <h2>Welcome to Survey Maker, please put your login credentials below to start using the app.</h2>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <form class="form d-flex flex-column" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                </mat-form-field>
+              
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" type="password">
+                </mat-form-field>
+                <button type="submit" mat-raised-button color="primary">Log in</button>
+              </form>
+            
+            <p class="my-2">Don't have an account? <strong class="text-primary cursor-pointer" [routerLink]="['/register']">Sign up</strong></p>
+          </div>
+  
+        </div>
+      </div>
+      <div class="col-8 order-first order-lg-last">
+        <div class="image">
+          <img src="./../../../../assets/img/home-landing.jpg" class="w-100" alt="">
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  
+  

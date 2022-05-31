@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+.custom-btn {
+    height: 100px;
+    width: 100px;
+    border: none;
+    background: #f9fdff;
+    border-radius: 1rem;
+}
+.custom-btn:hover {
+    color: white;
+    background: #3464e0;
+    transition: background 0.5s ease;
+}
+.icon-display {
+    transform: scale(1.5);
+}

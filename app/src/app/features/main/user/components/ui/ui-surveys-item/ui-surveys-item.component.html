@@ -1,0 +1,28 @@
+<mat-card class="survey-card col-12">
+  <div class="header">
+    <mat-card-content>
+      <mat-card-title class="title">{{survey?.title}}</mat-card-title>
+    </mat-card-content>
+  </div>
+
+  <mat-card-content>
+    <div class="sub-header">
+      <div class="col">
+        <span>Created: {{survey?.createdAt | date}}</span>
+      </div>
+      <!-- <div class="col">
+        <div class="tags">
+          <span class="title">Tags:</span>
+          <div *ngFor="let tag of survey?.surveyTags; let last = last">
+            <strong>{{tag}}</strong>
+            <span class="space" *ngIf="!last">|</span>
+          </div>
+        </div>
+      </div> -->
+      <div class="col">
+        <p>Survey Id: <strong>{{survey?.link}}</strong></p>
+      </div>
+    </div>
+
+  </mat-card-content>
+</mat-card>

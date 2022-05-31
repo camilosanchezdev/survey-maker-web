@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <mat-card class="survey-card col-12 my-5">
+        <mat-card-content class="row d-flex align-items-end pb-1">
+          <div class="row">
+            <div class="col-12 header">
+              <h1 class="h1-main text-center my-5">new survey as draft</h1>
+            </div>
+            <div class="col-12 my-3">
+              <h2>lorem ipsum test test.</h2>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-content>
+          <form [formGroup]="formGroup" class="row" (ngSubmit)="onSubmit()">
+            <ng-container class="col-12" formArrayName="questions">
+                <div class="question" *ngFor="let question of survey?.questions; let i = index" >
+                  <div [formGroupName]="i">
+                      <label id="example-radio-group-label">{{i + 1}}. {{question.name}}</label>
+                      <mat-radio-group aria-labelledby="example-radio-group-label" class="radio-group" formControlName="answer" *ngIf="!question.multiple">
+                        <mat-radio-button class="radio-button" *ngFor="let answer of question.answers" [value]="answer.id">
+                          {{answer.name}}
+                        </mat-radio-button>
+                      </mat-radio-group>
+                      <section class="question" *ngIf="question.multiple" [formGroupName]="'answer'">
+                        <p *ngFor="let answer of question.answers; let index = index">
+                          <mat-checkbox [formControlName]="answer.id">{{answer.name}}</mat-checkbox>
+                        </p>
+                      </section>
+                  </div>
+                </div>
+              </ng-container>
+            <div class="col-12 my-5 d-flex justify-content-center">
+              <button mat-raised-button color="primary" class="w-25 p1-2">
+                <mat-icon>save</mat-icon><span class="mx-2 h5">SAVE</span>
+              </button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    
+     
+    </div>
+    </div>
+  </div>
+

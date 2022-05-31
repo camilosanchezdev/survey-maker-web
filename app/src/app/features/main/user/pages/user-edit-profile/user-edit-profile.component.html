@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <ui-breadcrumbs [section]="SECTION.Profile" lastPage="Edit Profile"></ui-breadcrumbs>
+      <mat-card class="survey-card col-12">
+          <mat-card-content class="header row d-flex align-items-end pb-3">
+              <div class="col-1 d-flex justify-content-center">
+                  <mat-icon class="h1 mr-5 pr-5">settings</mat-icon>
+              </div>
+              <div class="col-11">
+                  <mat-card-title class="title mb-0">Edit Profile</mat-card-title>
+              </div>
+          </mat-card-content>
+          <div class="row d-flex justify-content-center">
+              <div class="col-6 py-4">
+                  <form class="form d-flex flex-column" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input matInput formControlName="name">
+                      </mat-form-field>
+                      <div formGroupName="emailGroup" class="d-flex flex-column">
+                        <mat-form-field class="example-full-width" appearance="fill">
+                          <mat-label>Email</mat-label>
+                          <input matInput formControlName="email">
+                        </mat-form-field>
+                        
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Repeat Email</mat-label>
+                            <input matInput formControlName="repeatEmail">
+                            <small *ngIf="formGroup.get('emailGroup').errors && submitted" class="ml-1 text-danger" >Please make sure your emails match</small>
+                        </mat-form-field>
+                      </div>
+                      <button type="submit" mat-raised-button color="primary">Save</button>
+                    </form>
+              </div>
+          </div>
+          <mat-card-content>
+          </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

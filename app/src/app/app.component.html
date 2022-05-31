@@ -1,0 +1,7 @@
+<div *ngIf="loading$ | async">
+    <ui-loading></ui-loading>
+</div>
+<div class="content overlay" [class.overlay]="loading$ | async">
+    <router-outlet></router-outlet>
+</div>
+

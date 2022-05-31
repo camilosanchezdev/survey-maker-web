@@ -1,0 +1,46 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <ui-breadcrumbs [section]="SECTION.Surveys" lastPage="Statistics" [surveyId]="surveyId" [surveyTitle]="report?.surveyTitle"></ui-breadcrumbs>
+      <div class="container-card my-3">
+        <div class="row mb-4">
+          <mat-card class="card">
+            <mat-card-header>
+              <div class="header">
+                <div class="sub-header">
+                  <div mat-card-avatar class="header-image d-flex justify-content-center p-0">
+                    <mat-icon class="h2">note_alt</mat-icon>
+                  </div>
+                  <mat-card-title class="mb-0">
+                    <h1 class="mb-0">{{report?.surveyTitle}}</h1>
+                  </mat-card-title>
+                </div>
+              </div>
+            </mat-card-header>
+            <mat-card-content>
+              <mat-card-title>
+                <h2 class="mt-3">Statistics</h2>
+              </mat-card-title>
+              <div *ngFor="let item of report?.questionAnswer; let i = index" class="mt-2 mb-5">
+                <h1>{{i + 1}}. {{item.questionName}}</h1>
+                <ui-bar-chart [data]="item?.answerQuantity"></ui-bar-chart>
+              </div>
+            </mat-card-content>
+
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+

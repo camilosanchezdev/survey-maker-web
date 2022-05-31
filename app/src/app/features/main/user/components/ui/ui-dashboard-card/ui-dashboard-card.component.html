@@ -1,0 +1,17 @@
+<mat-card class="dashboard-card w-100">
+  <mat-card-content class="header">
+    <mat-card-title class="title pb-2">{{title}}</mat-card-title>
+  </mat-card-content>
+  <mat-card-content>
+    <div class="sub-header">
+      <div class="col">
+        <img [src]="'./../../../../../../../assets/img/' + icon" alt="message" class="image">
+      </div>
+      <div class="col">
+        <span class="quantity">{{quantity}}</span>
+        <mat-card-subtitle>{{subtitle}}</mat-card-subtitle>
+      </div>
+    </div>
+    <p>{{text}}</p>
+  </mat-card-content>
+</mat-card>

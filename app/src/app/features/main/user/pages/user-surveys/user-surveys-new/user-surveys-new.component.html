@@ -1,0 +1,106 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <ui-breadcrumbs [section]="SECTION.Surveys" lastPage="New Survey"></ui-breadcrumbs>
+      <mat-card class="my-3">
+          <mat-card-content class="header row d-flex align-items-end pb-3">
+              <div class="col-1 d-flex justify-content-center">
+                  <mat-icon class="h1 mr-5 pr-5">settings</mat-icon>
+              </div>
+              <div class="col-11">
+                  <mat-card-title class="title mb-0">Edit Survey</mat-card-title>
+              </div>
+          </mat-card-content>
+          <div class="row d-flex justify-content-center">
+              <div class="col-12 py-4">
+                  <form class="survey-form" [formGroup]="formGroup">
+                      <div class="row w-100">
+                          <div class="col-12">
+                              <mat-form-field class="input" appearance="fill">
+                                  <mat-label>Survey name</mat-label>
+                                  <input matInput placeholder="Ex. Patient Satisfaction Survey" formControlName="title">
+                                </mat-form-field>
+                          </div>
+                          <div class="col-12">
+                              <mat-form-field class="input" appearance="fill">
+                                  <mat-label>Description</mat-label>
+                                  <input matInput #message maxlength="256" placeholder="Ex. Your responses will help us provide the best service possible." formControlName="description">
+                                  <mat-hint align="start"><strong>This won't be public</strong> </mat-hint>
+                                  <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+                                </mat-form-field>
+                          </div>
+                          <div class="col-12">
+                              <mat-form-field appearance="fill">
+                                  <mat-label>Choose a date</mat-label>
+                                  <input matInput [matDatepicker]="picker" formControlName="endsAt">
+                                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                  <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                          </div>
+                      </div>
+                      <mat-card-title>
+                        <h2>Preview</h2>
+                      </mat-card-title>
+                      <div class="row">
+                          <div class="col-12">
+                              <div class="question" *ngFor="let question of questions; let i = index">
+                                  <div class="row">
+                                      <div class="col-12">
+                                          <label class="h6">{{i + 1}}. {{question.name}}</label>
+                                      </div>
+                                      <div class="col-12">
+                                          <mat-radio-group aria-labelledby="example-radio-group-label" class="radio-group row" *ngIf="!question.multiple">
+                                              <mat-radio-button class="radio-button my-2" *ngFor="let answer of question.answers" [value]="answer">
+                                                      {{answer.name}}
+                                              </mat-radio-button>
+                                            </mat-radio-group>
+                                      </div>
+                                      <div class="col-12">
+                                          <section class="example-section row" *ngIf="question.multiple">
+                                              <p *ngFor="let answer of question.answers">
+                                                <mat-checkbox class="my-2">{{answer.name}}</mat-checkbox>
+                                              </p>
+                                            </section>
+                                      </div>
+                                  </div>
+                                <div class="row">
+                                  <div class="col-12">
+                                    <div class="actions mb-4">
+                                      <button mat-button (click)="editQuestion(question, i)">Edit</button>
+                                      <button mat-button color="warn" (click)="removeQuestion(i)">Remove</button>
+                                    </div>
+                                  </div>
+                                </div>
+                                </div>
+                          </div>
+                      </div>
+                    
+                      <div class="row new-question">
+                        <div class="col">
+                          <button mat-raised-button color="accent" type="button" (click)="onAddQuestion()"><mat-icon>add</mat-icon> Add question</button>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12 d-flex justify-content-end">
+                          <div class="mx-1">
+                            <button mat-raised-button color="primary" type="submit" (click)="onSaveAsDraft()"><mat-icon>bookmark</mat-icon> Save as Draft</button>
+                          </div>
+                          <div class="mx-1">
+                            <button mat-raised-button color="primary" type="submit" (click)="onSave()"><mat-icon>save</mat-icon> Publish</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+              </div>
+          </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  

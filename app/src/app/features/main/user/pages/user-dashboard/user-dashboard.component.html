@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-sm-12">
+      <ui-dashboard-card title="Total Surveys" [quantity]="kpis?.totalSurveys" subtitle="Total Surveys" icon="icon-1.png"
+      text="Total Surveys Created (Active, Draft, Completed)."></ui-dashboard-card>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+      <ui-dashboard-card title="Total Responses" [quantity]="kpis?.totalResponses" subtitle="Total Responses" icon="icon-2.png"
+      text="Total number of people who have responded to your surveys."></ui-dashboard-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12">
+      <ui-dashboard-card title="Surveys Active" [quantity]="kpis?.totalSurveysActive" subtitle="Surveys Active" icon="icon-3.png"
+      text="Total Surveys currently active."></ui-dashboard-card>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+      <ui-dashboard-card title="Surveys Completed" [quantity]="kpis?.totalSurveysCompleted" subtitle="Surveys Completed" icon="icon-4.png"
+      text="Total Surveys completed successfully."></ui-dashboard-card>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,32 @@
+<div class="row mt-5">
+    <div class="col-12 d-flex flex-row">
+        <div class="d-flex align-items-center cursor-pointer" [routerLink]="['/main']">
+            <mat-icon class="">home</mat-icon>
+            <span>Home</span>
+        </div>
+        <div class="divisor d-flex justify-content-center">
+            <mat-icon class="">chevron_right</mat-icon>
+        </div>
+        <div class="d-flex align-items-center cursor-pointer" [routerLink]="['/main/profile']" *ngIf="section === SECTION.Profile">
+            <span>Profile</span>
+        </div>
+        <div class="d-flex align-items-center cursor-pointer" [routerLink]="['/main/surveys']" *ngIf="section === SECTION.Surveys">
+            <span>Surveys</span>
+        </div>
+        <div class="d-flex align-items-center cursor-pointer" [routerLink]="['/main/settings']" *ngIf="section === SECTION.Settings">
+            <span>Settings</span>
+        </div>
+        <div class="divisor d-flex justify-content-center" *ngIf="section === SECTION.Surveys && surveyId">
+            <mat-icon class="">chevron_right</mat-icon>
+        </div>
+        <div class="d-flex align-items-center cursor-pointer" [routerLink]="['/main/surveys', surveyId]" *ngIf="section === SECTION.Surveys && surveyId">
+            <span>{{surveyTitle}}</span>
+        </div>
+        <div class="divisor d-flex justify-content-center" *ngIf="lastPage">
+            <mat-icon class="">chevron_right</mat-icon>
+        </div>
+        <div class="d-flex align-items-center" *ngIf="lastPage">
+            <span>{{lastPage}}</span>
+        </div>
+    </div>
+</div>

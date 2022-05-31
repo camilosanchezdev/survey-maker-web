@@ -1,0 +1,63 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <ui-breadcrumbs [section]="SECTION.Surveys"></ui-breadcrumbs>
+      <div>
+        <div class="row actions">
+          <div class="col-12 d-flex justify-content-end">
+            <button mat-raised-button color="primary" [routerLink]="['/main/surveys/new']"><mat-icon>post_add</mat-icon> New survey</button>
+          </div>
+        </div>
+
+        <mat-tab-group mat-align-tabs="start" class="mb-4">
+          <mat-tab label="Active">
+            <div class="row" *ngFor="let survey of activeSurveys">
+                <ui-surveys-item [routerLink]="['/main/surveys', survey.id]" [survey]="survey"></ui-surveys-item>
+            </div>
+            <div class="row" *ngIf="activeSurveys?.length === 0">
+              <div class="col-12 d-flex justify-content-center">
+                <div class="not-found">
+                  <span><mat-icon class="h1">search_off</mat-icon></span>
+                <p class="h2">There're no surveys</p>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="Draft">
+            <div class="row mx-0 px-0" *ngFor="let survey of draftSurveys">
+              <div class="col-12">
+                <ui-surveys-item [routerLink]="['/main/surveys', survey.id]" [survey]="survey"></ui-surveys-item>
+              </div>
+            </div>
+            <div class="row" *ngIf="draftSurveys?.length === 0">
+              <div class="col-12 d-flex justify-content-center">
+                <div class="not-found">
+                  <span><mat-icon class="h1">search_off</mat-icon></span>
+                <p class="h2">There're no surveys</p>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="Finished">
+            <div class="row" *ngFor="let survey of completedSurveys">
+              <div class="col-12">
+                <ui-surveys-item [routerLink]="['/main/surveys', survey.id]" [survey]="survey"></ui-surveys-item>
+              </div>
+            </div>
+            <div class="row" *ngIf="completedSurveys?.length === 0">
+              <div class="col-12 d-flex justify-content-center">
+                <div class="not-found">
+                  <span><mat-icon class="h1">search_off</mat-icon></span>
+                <p class="h2">There're no surveys</p>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

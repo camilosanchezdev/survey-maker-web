@@ -1,0 +1,77 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <ui-breadcrumbs [section]="SECTION.Surveys" [lastPage]="survey?.title"></ui-breadcrumbs>
+      <div class="container-card my-3">
+        <div class="row mb-4">
+          <mat-card class="card">
+            <mat-card-header>
+              <div class="header d-flex align-items-center">
+                <div class="sub-header">
+                  <div mat-card-avatar class="header-image d-flex justify-content-center p-0">
+                    <mat-icon class="h2">note_alt</mat-icon>
+                  </div>
+                  <mat-card-title class="mb-0">
+                    <h1 class="mb-0">{{survey?.title}}</h1>
+                  </mat-card-title>
+                </div>
+
+                <!-- <mat-card-subtitle class="pt-2">
+                  <div *ngFor="let tag of survey?.surveyTags; let last = last">
+                    <span>{{tag}}</span>
+                    <span *ngIf="!last" class="space">|</span>
+                  </div>
+                </mat-card-subtitle> -->
+              </div>
+              <div class="status">
+                <mat-card-actions class="p-0">
+                  <button mat-raised-button color="primary" disabled>{{survey?.surveyStatusId | surveyStatus}}</button>
+                </mat-card-actions>
+              </div>
+            </mat-card-header>
+            <mat-card-actions>
+              <button mat-button *ngIf="survey?.surveyStatusId !== SURVEY_STATUS.Draft" (click)="openStatistics()" [disabled]="!survey?.hasResponses"><mat-icon>query_stats</mat-icon> STATISTICS</button>
+              <button mat-button *ngIf="survey?.surveyStatusId !== SURVEY_STATUS.Draft" (click)="onDownloadReport()" [disabled]="!survey?.hasResponses"><mat-icon>file_download</mat-icon> DOWNLOAD REPORT</button>
+              <button mat-button  (click)="onMarkAsActive()" *ngIf="survey?.surveyStatusId === SURVEY_STATUS.Draft"><mat-icon>toggle_on</mat-icon> MARK AS ACTIVE</button>
+              <button mat-button (click)="onMarkAsCompleted()" *ngIf="survey?.surveyStatusId === SURVEY_STATUS.Active"><mat-icon>done</mat-icon> MARK AS COMPLETED</button>
+              <button mat-button *ngIf="survey?.surveyStatusId === SURVEY_STATUS.Draft" (click)="editSurvey()">EDIT</button>
+              <button mat-button (click)="copyLink(survey?.link)"><mat-icon>content_copy</mat-icon> COPY PUBLIC LINK</button>
+            </mat-card-actions>
+            <mat-card-content>
+              <p>The survey finishes on {{survey?.endsAt | date}}</p>
+              <p>Description:</p>
+              <p [innerHtml]="survey?.description">
+              </p>
+              <mat-card-title>
+                <h2>Preview</h2>
+              </mat-card-title>
+              <div class="question" *ngFor="let question of survey?.questions; let i = index">
+                <label id="example-radio-group-label">{{i + 1}}. {{question.name}}</label>
+                <mat-radio-group aria-labelledby="example-radio-group-label" class="radio-group" *ngIf="!question.multiple">
+                  <mat-radio-button class="radio-button" *ngFor="let answer of question.answers" [value]="answer.name">
+                          {{answer.name}}
+                  </mat-radio-button>
+                </mat-radio-group>
+                <section class="example-section" *ngIf="question.multiple">
+                  <p *ngFor="let answer of question.answers">
+                    <mat-checkbox>{{answer.name}}</mat-checkbox>
+                  </p>
+                </section>
+              </div>
+            </mat-card-content>
+
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
